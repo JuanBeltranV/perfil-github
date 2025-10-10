@@ -1,0 +1,199 @@
+:root {
+  --bg: #0f1115;
+  --fg: #f5f7fa;
+  --muted: #a3abb3;
+  --brand: #73d070;
+  --accent: #a6bdac;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+header {
+  text-align: center;
+  padding: 80px 20px 60px;
+  background: linear-gradient(180deg, #151820, #0f1115);
+}
+
+header h1 span {
+  color: var(--brand);
+}
+
+header p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--brand);
+  color: #111;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Botón deshabilitado (Próximamente) */
+.btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+section {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+#about p {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--muted);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: #141821;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* misma altura visual */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.project-card p {
+  color: var(--muted);
+}
+
+.links {
+  margin-top: 15px;
+}
+
+#contacto {
+  text-align: center;
+}
+
+#contacto a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#contacto a:hover {
+  color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #0c0e12;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ===== Certificaciones ===== */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.cert-card {
+  background: #141821;
+  border: 1px solid #232838;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.35);
+
+  /* Igualar alturas y alinear botón al fondo */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cert-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.cert-card .issuer {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.cert-actions {
+  margin-top: auto;             /* empuja el botón al fondo */
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive pequeño */
+@media (max-width: 640px) {
+  .cert-card { padding: 16px; }
+}
+
+/* ===== Hover profesional en las cards ===== */
+.project-card,
+.cert-card {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.project-card:hover,
+.cert-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
+}
+.cert-card:hover h3,
+.project-card:hover h3 {
+  color: var(--brand);
+}
+
