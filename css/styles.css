@@ -1,3 +1,4 @@
+/* ===== Variables ===== */
 :root {
   --bg: #0f1115;
   --fg: #f5f7fa;
@@ -6,9 +7,14 @@
   --accent: #a6bdac;
 }
 
+/* ===== Reset & Base ===== */
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
@@ -17,16 +23,58 @@ body {
   background: var(--bg);
   color: var(--fg);
   line-height: 1.6;
+  scroll-snap-type: y mandatory;
 }
 
 h1, h2, h3 {
   font-weight: 600;
 }
 
+/* ===== Layout General ===== */
+section {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* ===== Pantallas con scroll-snap ===== */
+.screen {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra vertical */
+}
+
+.screen section,
+.screen header {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.screen:last-of-type {
+  min-height: auto;
+  scroll-snap-align: end;
+}
+
+.screen:first-of-type {
+  background: linear-gradient(180deg, #151820, #0f1115);
+}
+
+/* ===== Header ===== */
 header {
   text-align: center;
   padding: 80px 20px 60px;
-  background: linear-gradient(180deg, #151820, #0f1115);
+  background: transparent; /* hereda fondo del .screen */
 }
 
 header h1 span {
@@ -39,6 +87,7 @@ header p {
   color: var(--muted);
 }
 
+/* ===== Botones ===== */
 .btn {
   display: inline-block;
   background: var(--brand);
@@ -56,28 +105,14 @@ header p {
   color: #fff;
 }
 
-/* Botón deshabilitado (Próximamente) */
+/* Botón deshabilitado */
 .btn.disabled {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-section {
-  padding: 80px 20px;
-}
-
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 40px;
-}
-
+/* ===== Sobre mí ===== */
 #about p {
   max-width: 750px;
   margin: 0 auto;
@@ -85,6 +120,7 @@ h2 {
   color: var(--muted);
 }
 
+/* ===== Proyectos ===== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -97,11 +133,12 @@ h2 {
   border-radius: 14px;
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
   text-align: center;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .project-card img {
   width: 100%;
-  aspect-ratio: 16 / 9;   /* misma altura visual */
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 15px;
@@ -116,26 +153,13 @@ h2 {
   margin-top: 15px;
 }
 
-#contacto {
-  text-align: center;
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
 }
 
-#contacto a {
+.project-card:hover h3 {
   color: var(--brand);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-#contacto a:hover {
-  color: var(--accent);
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #0c0e12;
-  color: var(--muted);
-  font-size: 0.9rem;
 }
 
 /* ===== Certificaciones ===== */
@@ -152,11 +176,10 @@ footer {
   padding: 18px;
   text-align: center;
   box-shadow: 0 6px 22px rgba(0,0,0,0.35);
-
-  /* Igualar alturas y alinear botón al fondo */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .cert-card h3 {
@@ -171,29 +194,48 @@ footer {
 }
 
 .cert-actions {
-  margin-top: auto;             /* empuja el botón al fondo */
+  margin-top: auto;
   display: flex;
   justify-content: center;
 }
 
-/* Responsive pequeño */
-@media (max-width: 640px) {
-  .cert-card { padding: 16px; }
-}
-
-/* ===== Hover profesional en las cards ===== */
-.project-card,
-.cert-card {
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.project-card:hover,
 .cert-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
 }
-.cert-card:hover h3,
-.project-card:hover h3 {
+
+.cert-card:hover h3 {
   color: var(--brand);
 }
 
+/* ===== Contacto ===== */
+#contacto {
+  text-align: center;
+}
+
+#contacto a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#contacto a:hover {
+  color: var(--accent);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #0c0e12;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .cert-card {
+    padding: 16px;
+  }
+}
