@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /perfil-github/
+Sitemap: https://juanbeltranv.github.io/perfil-github/sitemap.xml
