@@ -32,7 +32,7 @@ export const projects: Project[] = [
     category: 'DESARROLLO FULLSTACK · PROYECTO ACADÉMICO',
     description: 'Aplicación web para consultar y administrar un catálogo de peluches de Pokémon. Desarrollada con React, Spring Boot y SQLite, con autenticación mediante Amazon Cognito y permisos por roles.',
     tags: ['React', 'Java · Spring Boot', 'Amazon Cognito', 'SQLite'],
-    image: 'images/pokepeluche.webp', width: 1425, height: 1145,
+    image: 'images/pokepeluche.webp', width: 1425, height: 1103,
     repo: 'https://github.com/JuanBeltranV/tienda-pokepeluche',
     architecture: ['React + Amplify', 'API Gateway', 'Spring Boot', 'SQLite'],
     details: [
