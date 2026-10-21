@@ -20,7 +20,6 @@ export interface Project {
   image: string
   width: number
   height: number
-  caption: string
   repo: string
   demo?: string
   architecture: string[]
@@ -31,32 +30,30 @@ export const projects: Project[] = [
   {
     id: 'pokepeluche', number: '01', title: 'PokePeluche',
     category: 'DESARROLLO FULLSTACK · PROYECTO ACADÉMICO',
-    description: 'Un catálogo con personalidad. Una API con permisos claros. Aplicación para consultar y administrar peluches inspirados en Pokémon.',
+    description: 'Aplicación web para consultar y administrar un catálogo de peluches de Pokémon. Desarrollada con React, Spring Boot y SQLite, con autenticación mediante Amazon Cognito y permisos por roles.',
     tags: ['React', 'Java · Spring Boot', 'Amazon Cognito', 'SQLite'],
     image: 'images/pokepeluche.webp', width: 1425, height: 1145,
-    caption: 'Captura del repositorio · etapa de diseño Emerald',
     repo: 'https://github.com/JuanBeltranV/tienda-pokepeluche',
     architecture: ['React + Amplify', 'API Gateway', 'Spring Boot', 'SQLite'],
     details: [
       { title: 'El proyecto', text: 'Catálogo académico con búsqueda, detalle de productos, administración y mensajes de contacto. No incluye carrito, pagos ni pedidos.' },
       { title: 'Decisiones técnicas', text: 'Cognito autentica; Spring Security valida los JWT y aplica permisos por rol. El backend separa controladores, servicios y repositorios, con persistencia mediante JPA y SQLite.' },
-      { title: 'Alcance y estado', text: 'La demostración documentada conecta API Gateway con Spring mediante Cloudflare Quick Tunnel. Requiere servicios locales y no tiene una demo pública permanente. La captura conserva una etapa anterior de la interfaz; el README describe el estado funcional actual.' },
+      { title: 'Alcance y estado', text: 'La demostración documentada conecta API Gateway con Spring mediante Cloudflare Quick Tunnel. El frontend y el backend se ejecutan localmente; no hay una demo pública permanente.' },
     ],
   },
   {
     id: 'country-clash', number: '02', title: 'Country Clash',
     category: 'FRONTEND · JUEGO WEB',
-    description: 'Dos países. Una decisión. Un juego de geografía para descubrir cuánto sabes sobre la población del mundo.',
+    description: 'Juego web en el que debes elegir cuál de dos países tiene mayor población. Desarrollado con React, utilizando datos de países y mapas geográficos.',
     tags: ['React', 'Vite', 'D3 Geo', 'TopoJSON'],
     image: 'images/country-clash.webp', width: 1584, height: 924,
-    caption: 'Captura real del proyecto · comparación entre países',
     repo: 'https://github.com/JuanBeltranV/country-clash',
     demo: 'https://juanbeltranv.github.io/country-clash/',
     architecture: ['Datos de países', 'React', 'D3 Geo + TopoJSON', 'GitHub Pages'],
     details: [
-      { title: 'La experiencia', text: 'Elige el país con mayor población. Cada acierto suma un punto y conserva al ganador para la siguiente ronda. Al fallar, puedes reiniciar la partida.' },
+      { title: 'Funcionamiento', text: 'El jugador elige el país con mayor población. Cada acierto suma un punto y conserva al ganador para la siguiente ronda. Al fallar, puede reiniciar la partida.' },
       { title: 'Decisiones técnicas', text: 'Las siluetas reales se dibujan con world-atlas, TopoJSON y D3 Geo. La interfaz muestra banderas, países y puntuación actual, junto al mejor puntaje de la sesión.' },
-      { title: 'Disponibilidad', text: 'Aplicación estática publicada en GitHub Pages. Incluye datos locales de respaldo para mantener el juego funcionando si cambia la API pública.' },
+      { title: 'Datos y disponibilidad', text: 'Consulta REST Countries v3.1 para obtener nombres, población y banderas. Si la petición falla o no devuelve suficientes países válidos, utiliza datos locales de respaldo. Publicada en GitHub Pages.' },
     ],
   },
 ]
