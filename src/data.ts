@@ -12,9 +12,9 @@ export const profile = {
 
 export interface Project {
   id: string
-  number: string
   title: string
   category: string
+  insight: string
   description: string
   tags: string[]
   image: string
@@ -28,8 +28,9 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'pokepeluche', number: '01', title: 'PokePeluche',
-    category: 'DESARROLLO FULLSTACK · PROYECTO ACADÉMICO',
+    id: 'pokepeluche', title: 'PokePeluche',
+    category: 'Fullstack · Proyecto académico',
+    insight: 'Cognito autentica al usuario; Spring Security valida los JWT y aplica los permisos por rol.',
     description: 'Aplicación web para consultar y administrar un catálogo de peluches de Pokémon. Desarrollada con React, Spring Boot y SQLite, con autenticación mediante Amazon Cognito y permisos por roles.',
     tags: ['React', 'Java · Spring Boot', 'Amazon Cognito', 'SQLite'],
     image: 'images/pokepeluche.webp', width: 1425, height: 1103,
@@ -42,8 +43,9 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 'country-clash', number: '02', title: 'Country Clash',
-    category: 'FRONTEND · JUEGO WEB',
+    id: 'country-clash', title: 'Country Clash',
+    category: 'Frontend · Juego web',
+    insight: 'Las siluetas se dibujan con D3 Geo y TopoJSON. Si REST Countries falla, el juego utiliza datos locales de respaldo.',
     description: 'Juego web en el que debes elegir cuál de dos países tiene mayor población. Desarrollado con React, utilizando datos de países y mapas geográficos.',
     tags: ['React', 'Vite', 'D3 Geo', 'TopoJSON'],
     image: 'images/country-clash.webp', width: 1584, height: 924,
@@ -65,8 +67,8 @@ export const certificates = [
 ]
 
 export const technologies = [
-  { number: '01', title: 'Backend', items: ['Java', 'Spring Boot', 'Spring Security', 'Python'] },
-  { number: '02', title: 'Frontend', items: ['React', 'TypeScript', 'JavaScript', 'HTML + CSS'] },
-  { number: '03', title: 'Cloud / DevOps', items: ['Amazon Cognito', 'API Gateway', 'Git', 'GitHub Actions'] },
-  { number: '04', title: 'Bases de datos', items: ['SQLite', 'Oracle SQL', 'JPA / Hibernate'] },
+  { title: 'Backend', items: ['Java', 'Spring Boot', 'Spring Security', 'Python'] },
+  { title: 'Frontend', items: ['React', 'TypeScript', 'JavaScript', 'HTML + CSS'] },
+  { title: 'Cloud / DevOps', items: ['Amazon Cognito', 'API Gateway', 'Git', 'GitHub Actions'] },
+  { title: 'Bases de datos', items: ['SQLite', 'Oracle SQL', 'JPA / Hibernate'] },
 ]
