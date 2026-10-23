@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import type { Project } from './data'
 
 export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -6,7 +6,8 @@ export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 }
 
 export function ExternalLink({ href, children, className = '', label }: { href: string; children: ReactNode; className?: string; label?: string }) {
-  return <a href={href} className={className} target="_blank" rel="noopener noreferrer" aria-label={label}>{children}<Arrow diagonal /><span className="sr-only"> (abre en otra pestaña)</span></a>
+  const hintId = useId()
+  return <a href={href} className={className} target="_blank" rel="noopener noreferrer" aria-label={label} aria-describedby={hintId}>{children}<Arrow diagonal /><span id={hintId} className="sr-only" aria-hidden="true"> (abre en otra pestaña)</span></a>
 }
 
 export function Header() {
@@ -20,10 +21,10 @@ export function Header() {
     document.addEventListener('keydown', close)
     return () => document.removeEventListener('keydown', close)
   }, [open])
-  return <header className="site-header">
+  return <header className="site-header" onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false) }}>
     <a className="wordmark" href="#inicio" aria-label="Juan Beltrán, inicio" onClick={() => setOpen(false)}>jb<span>.</span></a>
-    <button ref={toggle} className="menu-toggle" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>{open ? 'Cerrar' : 'Menú'}<span aria-hidden="true">{open ? '−' : '+'}</span></button>
-    <nav id="main-nav" aria-label="Navegación principal" className={open ? 'navigation is-open' : 'navigation'}>
+    <button ref={toggle} onBlur={event => { if (!event.relatedTarget?.closest("#main-nav")) setOpen(false) }} onPointerDown={event => { if (open) event.preventDefault() }} className="menu-toggle" aria-expanded={open} aria-controls="main-nav" onClick={() => setOpen(!open)}>{open ? 'Cerrar' : 'Menú'}<span aria-hidden="true">{open ? '−' : '+'}</span></button>
+    <nav onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false) }} id="main-nav" aria-label="Navegación principal" className={open ? 'navigation is-open' : 'navigation'}>
       {[['#proyectos', 'Proyectos'], ['#sobre-mi', 'Sobre mí'], ['#formacion', 'Formación'], ['#contacto', 'Contacto']].map(([href, text]) => <a key={href} href={href} onClick={() => setOpen(false)}>{text}{href === '#contacto' && <Arrow diagonal />}</a>)}
     </nav>
   </header>

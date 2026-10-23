@@ -185,8 +185,10 @@
     .site-header { height: 72px; padding-inline: 20px; }
     .wordmark { font-size: 32px; }
     .menu-toggle { display: flex; align-items: center; gap: 18px; background: transparent; color: #edf0e9; border: 1px solid #465342; padding: 10px 12px; min-height: 44px; font-size: 14px; }
+    @media (hover: hover) { .menu-toggle:hover { background: #1b2a1f; border-color: var(--accent); } }
+    .menu-toggle:active { background: #1b2a1f; color: var(--accent); }
     .menu-toggle span { color: var(--accent); font-size: 19px; line-height: 1; }
-    .navigation { display: none; position: absolute; inset: 71px 0 auto; padding: 20px; background: #171e18; border-bottom: 1px solid #465342; }
+    .navigation { max-height: calc(100dvh - 72px); overflow-y: auto; overscroll-behavior: contain; display: none; position: absolute; inset: 71px 0 auto; padding: 20px; background: #171e18; border-bottom: 1px solid #465342; }
     .navigation.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 5px; }
     .navigation a, .navigation a:last-child { margin: 0; padding: 10px; }
     .hero { padding-top: 0; }
