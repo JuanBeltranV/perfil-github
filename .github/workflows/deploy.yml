@@ -1,5 +1,7 @@
-name: Deploy portfolio (manual approval)
+name: Deploy portfolio
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       approved:
@@ -14,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   build:
-    if: github.ref == 'refs/heads/main' && inputs.approved
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || inputs.approved)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
