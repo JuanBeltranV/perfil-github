@@ -162,7 +162,8 @@
 }
 @layer responsive {
   @media (min-width: 761px) {
-    .hero-composition { padding-block: clamp(24px, 4vh, 56px); }
+    .hero { min-height: calc(100dvh - 94px); display: flex; flex-direction: column; }
+    .hero-composition { flex: 1; padding-block: clamp(24px, 4vh, 56px); }
   }
   @media (max-width: 760px) {
     .image-dialog { padding: 12px; }
