@@ -93,7 +93,6 @@
   .text-link, .social-links a, .project-links a, .contact-social a { display: inline-flex; gap: 10px; align-items: center; min-height: 44px; font-size: 14px; }
   .social-links { display: flex; gap: 26px; }
   .social-links a { color: #c4cec4; }
-  .focus-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; text-align: center; padding: 18px 40px; color: #c4cfb9; background: #202c21; border-block: 1px solid #394738; font-size: 12px; line-height: 1.6; }
   .section-heading { margin-bottom: 52px; }
   .eyebrow { color: var(--muted); line-height: 1.8; }
   .section-title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
@@ -163,9 +162,7 @@
 }
 @layer responsive {
   @media (min-width: 761px) {
-    .intro { min-height: calc(100svh - 94px); display: flex; flex-direction: column; }
-    .intro .hero { flex: 1; display: flex; flex-direction: column; }
-    .intro .hero-composition { flex: 1; padding-block: clamp(24px, 4vh, 56px); }
+    .hero-composition { padding-block: clamp(24px, 4vh, 56px); }
   }
   @media (max-width: 760px) {
     .image-dialog { padding: 12px; }
@@ -181,7 +178,6 @@
     .site-header { padding-inline: 36px; }
     .hero-composition { grid-template-columns: 1.3fr 1fr; gap: 10px; }
     .project { column-gap: 32px; }
-    .focus-strip { gap: 15px; font-size: 12px; letter-spacing: 1px; padding-inline: 24px; }
     .about-section .section-shell { gap: 55px; }
   }
   @media (max-width: 760px) {
@@ -208,7 +204,6 @@
     .hero-bottom { padding-block: 12px 17px; }
     .social-links { gap: 20px; }
     .social-links a { font-size: 13px; gap: 5px; }
-    .focus-strip { gap: 8px; padding: 18px 16px; font-size: 12px; letter-spacing: .5px; }
     .projects-section, .technologies-section, .education-section { padding-block: 48px; }
     .section-heading { margin-bottom: 35px; }
     .section-title-row { display: block; }
@@ -257,7 +252,6 @@
   @media (max-width: 360px) {
     h1 { font-size: 55px; }
     .hero-actions { flex-wrap: wrap; gap: 8px 16px; }
-    .desktop-break { display: none; }
     .contact-heading { gap: 8px; }
     .contact-heading h2 { font-size: 34px; }
     .degree { gap: 12px; }
